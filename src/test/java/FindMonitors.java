@@ -13,6 +13,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.RozetkaHomePage;
+import pages.RozetkaProductPage;
+
 import java.util.List;
 import java.util.stream.IntStream;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
@@ -23,6 +26,9 @@ public class FindMonitors {
     WebDriver driver;
     WebDriverWait wait;
     String initialUrl = "http://rozetka.com.ua";
+    RozetkaHomePage rozetkaHomePage;
+    RozetkaProductPage rozetkaProductPage;
+
 
     @BeforeClass
     public void setupBrowser() {
@@ -40,6 +46,7 @@ public class FindMonitors {
     @BeforeMethod
     public void navigateAction() {
         driver.get(initialUrl);
+        rozetkaHomePage = new RozetkaHomePage(driver)
     }
 
     @Test
